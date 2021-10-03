@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef unsigned long long ull;
+const long MOD=1e9+7;
+int a[10015];
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++)
+        cin>>a[i];
+        
+    int mx=a[0];
+    int sum=a[0];
+    int f=0,s=1,f1=0;
+    for(int i=1;i<n;i++){
+        if(sum>0)
+            sum+=a[i];
+        else{
+            sum=a[i];
+            f1=i;
+        }
+        if(sum>mx){
+            mx=sum;
+            f=f1;
+            s=i;
+        }
+    }
+    
+    cout<<mx<<'\n';
+    cout<<f<<" "<<s;
+    return 0;
+}
